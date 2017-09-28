@@ -26,4 +26,4 @@ Employee information can be view in table and card layout
 
 Employee information can be downloaded to excel or CSV (Uses ng-table-excel-export)
 
-Employee information can uploaded using Import Excel (Uses js-xlsx)
+Employee information can uploaded using Import Excel (Uses js-xlsx and requires column header matching JSON)
