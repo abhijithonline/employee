@@ -39,7 +39,7 @@
 										<span class="input-group-addon">
 											<i class="material-icons">face</i>
 										</span>
-										<input type="text" class="form-control" ng-model="name" placeholder="Name...">
+										<input type="text" class="form-control" ng-model="name" placeholder="Name..." required>
 										<span style = "color:red" ng-show = "form.name.$dirty">
 											<span ng-show = "form.name.$error.required">Employee Name is required.</span>
 										 </span>
@@ -49,7 +49,7 @@
 										<span class="input-group-addon">
 											<i class="material-icons">email</i>
 										</span>										
-											<input class="form-control" type = "email" ng-model = "email" length = "100" placeholder="Email...">
+											<input class="form-control" type = "email" ng-model = "email" length = "100" placeholder="Email..." required>
 											<span style = "color:red" ng-show = "form.email.$dirty && form.email.$invalid">
 											   <span ng-show = "form.email.$error.required">Email is required.</span>
 											   <span ng-show = "form.email.$error.email">Invalid email address.</span>
@@ -61,7 +61,7 @@
 										<span class="input-group-addon">
 											<i class="material-icons">grade</i>
 										</span>
-										<input type="designation" ng-model="designation" placeholder="Designation..." class="form-control" />
+										<input type="designation" ng-model="designation" placeholder="Designation..." class="form-control" required/>
 										<span style = "color:red" ng-show = "form.designation.$dirty">
 											<span ng-show = "form.designation.$error.required">Designation is required.</span>
 										 </span>
@@ -71,7 +71,7 @@
 										<span class="input-group-addon">
 											<i class="material-icons">group_work</i>
 										</span>
-										<input type="department" ng-model="department" placeholder="Department..." class="form-control"  />
+										<input type="department" ng-model="department" placeholder="Department..." class="form-control"  required/>
 										<span style = "color:red" ng-show = "form.department.$dirty">
 											<span ng-show = "form.department.$error.required">Department is required.</span>
 										 </span>
@@ -89,12 +89,7 @@
 								
 								<div class="footer text-center">
 									<button class="btn btn-primary" ng-click="addEmployee()">Add</button>
-									<button class="btn btn-primary" ng-click="searchEmployees()">Search</button>
-									<button class="btn btn-primary" ng-click="handleFile()">Import</button>
-									
-									<input type="file" name="file"
-									onchange="angular.element(this).scope().loadFile(this.files)" /> 						
-																								
+									<!-- <button class="btn btn-primary" ng-click="searchEmployees()">Search</button>	-->	
 								</div>
 								
 								
@@ -146,12 +141,36 @@
 										</div>										
 									  </div>
 								</table>
-								<span class="input-group-addon">
-									
-										<a align="right" class="label label-info" download="download.xls" href="#" onclick="return ngTableExcelExport.excel(this, 'datatable1', 'Employees');">Export to Excel</a>
-										<a align="right" class="label label-info" download="download.csv" href="#" onclick="return ngTableExcelExport.csv(this, 'datatable1', 'Employees');">Export to CSV</a>
-									</span>
-								
+								<span class="input-group-addon">									
+										<a align="right" class="label label-info" download="download.xls" href="#" onclick="return ngTableExcelExport.excel(this, 'datatable3', 'Employees');">Export to Excel</a>
+										<a align="right" class="label label-info" download="download.csv" href="#" onclick="return ngTableExcelExport.csv(this, 'datatable3', 'Employees');">Export to CSV</a>
+										<a align="right" class="label label-info" ng-click="handleFile()">Import Excel</a>										
+										
+										<input type="file" name="file" multiple
+										onchange="angular.element(this).scope().loadFile(this.files)" />
+								</span>
+								<table class="table" id="datatable3">
+									<thead>
+										<tr>	
+											<th class="text-center">ids</th>									
+											<th>firstName</th>											
+											<th>email</th>
+											<th>designation</th>											
+											<th>department</th>										
+										</tr>
+									</thead>
+									<tbody>
+										
+										<tr ng-repeat="employee in employees" >		
+											<td >{{employee.ids}}</td>
+											<td>{{employee.firstName}}</td>
+											<td>{{employee.email}}</td>											
+											<td>{{employee.designation}}</td>
+											<td>{{employee.department}}</td>										
+										</tr>										
+										
+									</tbody>
+								</table>
 							</form>														
 						</div>
 					</div>
