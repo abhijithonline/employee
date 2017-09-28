@@ -13,10 +13,17 @@ Backend used Spring H2 DB
 Assignment:
 
 Single page application accepts and saves employee details. All employee information is listed.
+
 Spring boot manages REST services for CRUD operations
+
 Application is created using bootstrap design
+
 UI is designed to be responsive and tablet friendly
+
 Employee information can be modifed / deleted using  'Update' and 'Remove' options in the data table
+
 Employee information can be view in table and card layout
-Employee information can be downloaded to excel or CSV
-Employee information can uploaded using Import Excel
+
+Employee information can be downloaded to excel or CSV (Uses ng-table-excel-export)
+
+Employee information can uploaded using Import Excel (Uses js-xlsx)
